@@ -8,7 +8,7 @@ import (
 
 
 func main(){
-	db.Init()
+	db.Init() // Pemanggilan koneksi terhadap database
 	
 	e := routes.Init() 
 
