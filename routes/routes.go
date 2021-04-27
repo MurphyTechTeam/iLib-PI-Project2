@@ -14,8 +14,11 @@ func Init() *echo.Echo{
 		return c.String(http.StatusOK, "Ini percobaan Echo nya dah jalan belum")
 	}) // Mendefinisikan routing awal akses nya
 
-	// Pemanggilan GET Methods pada routes penulis dari database
+	// Pemanggilan GET Methods pada routes author dari database
 	e.GET("/author", controllers.FetchAllAuthor)
+
+	// Pemanggilan Post Methods pada routes author dari database
+	e.POST("/author", controllers.StoreAuthor)
 
 	return e
 }
