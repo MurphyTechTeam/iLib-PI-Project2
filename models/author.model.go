@@ -78,3 +78,36 @@ func StoreAuthor(Nama_author string) (Response, error){ // Fungsi untuk meng-inp
 	return res, nil
 
 }
+
+func UpdateAuthor(Id_author int, Nama_author string)(Response,error){ // Fungsi untuk melakukan update dengan method PUT pada tabel author di database iLib
+	var res Response // Inisialisasi variable responsenya
+ 
+	con := db.CreateCon() // Inisialisasi dengan database
+
+	sqlStatement := "UPDATE author SET nama_author = ? WHERE id_author = ?" // Query update table nya
+ 
+	stmt, err := con.Prepare(sqlStatement) // Variable persiapan awal sebelum eksekusi update data
+
+	if err != nil{
+		return res, err // lakukan pengecekan error dalam persiapan awal prepare databasenya query
+	}
+
+	result, err := stmt.Exec(Nama_author, Id_author) // eksekusi dari query
+
+	if err != nil {
+		return res,err // Cek kembali apakah ketika eksekusi query ada error tidak
+	}
+
+	rowsAffected, err := result.RowsAffected() // Meminta kembalian dari berapa rows yang terdampak update
+	if err != nil{
+		return res,err // cek apakah ada error dari rows yang di update
+	}
+
+	res.Status = http.StatusOK // set status OK karena berhasil
+	res.Message = "Success" // beri pesan
+	res.Data = map[string]int64{
+		"rows_affected" : rowsAffected, // dan tampilkan data banyaknya rows yang terkena pembaruan data
+	}
+
+	return res, nil
+}

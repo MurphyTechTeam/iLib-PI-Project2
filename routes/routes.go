@@ -19,6 +19,10 @@ func Init() *echo.Echo{
 
 	// Pemanggilan Post Methods pada routes author dari database
 	e.POST("/author", controllers.StoreAuthor)
+	
+	// Pemanggilan Put Methods pada routes author untuk ke database
+	e.PUT("/author", controllers.UpdateAuthor)
 
+	
 	return e
 }

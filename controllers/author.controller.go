@@ -3,6 +3,7 @@ package controllers
 import (
 	"mhilmi999/project-2-mhilmi999/models"
 	"net/http"
+	"strconv"
 
 	"github.com/labstack/echo"
 )
@@ -28,4 +29,25 @@ func StoreAuthor(c echo.Context) error{ // Fungsi untuk Post Method dalam error 
 	}
 
 	return c.JSON(http.StatusOK,result)
+}
+
+func UpdateAuthor(c echo.Context) error{ // Fungsi untuk Put Method dalam error handlingnya dari tabel author
+	// Variable untuk menerima inputan dari user 
+	Id_author := c.FormValue("Id_author")
+	Nama_author := c.FormValue("Nama_author")
+
+
+	// Konversi id string to int
+	conv_id, err := strconv.Atoi(Id_author)
+	if err != nil{
+		return c.JSON(http.StatusInternalServerError, err.Error()) // Jika error dalam konversi terjadi tampilkan apa errornya
+	}
+
+	result, err := models.UpdateAuthor(conv_id, Nama_author) // Parsingkan inputan dari user ke models untuk diteruskan ke database
+	if err != nil {
+		return c.JSON(http.StatusInternalServerError, err.Error()) // Jika saat parsing terjadi error maka tampilkan errornya
+	}
+
+	return c.JSON(http.StatusOK, result) // Jika sukses maka berikan status 200
+	
 }
