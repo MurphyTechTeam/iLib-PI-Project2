@@ -23,6 +23,8 @@ func Init() *echo.Echo{
 	// Pemanggilan Put Methods pada routes author untuk ke database
 	e.PUT("/author", controllers.UpdateAuthor)
 
-	
+	// Pemanggilan Delete Methods pada routes author untuk ke database
+	e.DELETE("/author", controllers.HapusAuthor)
+
 	return e
 }

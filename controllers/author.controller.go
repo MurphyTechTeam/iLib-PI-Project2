@@ -51,3 +51,21 @@ func UpdateAuthor(c echo.Context) error{ // Fungsi untuk Put Method dalam error 
 	return c.JSON(http.StatusOK, result) // Jika sukses maka berikan status 200
 	
 }
+
+func HapusAuthor(c echo.Context) error{
+	// Variable untuk menerima inputan dari user
+	Id_author := c.FormValue("Id_author")
+
+	// Konversi id string to int
+	conv_id, err := strconv.Atoi(Id_author)
+	if err != nil {
+		return c.JSON(http.StatusInternalServerError, err.Error()) // cek saat konversi apakah ada error
+	}
+
+	result, err := models.HapusAuthor(conv_id) // parsing data Id_author ke models untuk di eksekusi
+	if err != nil{
+		return c.JSON(http.StatusInternalServerError, err.Error()) // cek apakah saat parsing terjadi error
+	}
+
+	return c.JSON(http.StatusOK, result) // jika semua sukses, maka set status menjadi 200 
+}

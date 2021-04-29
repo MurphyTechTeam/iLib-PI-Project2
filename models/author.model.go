@@ -106,7 +106,38 @@ func UpdateAuthor(Id_author int, Nama_author string)(Response,error){ // Fungsi 
 	res.Status = http.StatusOK // set status OK karena berhasil
 	res.Message = "Success" // beri pesan
 	res.Data = map[string]int64{
-		"rows_affected" : rowsAffected, // dan tampilkan data banyaknya rows yang terkena pembaruan data
+		"Data terupdate sebanyak" : rowsAffected, // dan tampilkan data banyaknya rows yang terkena pembaruan data
+	}
+
+	return res, nil
+}
+
+func HapusAuthor(Id_author int) (Response,error){ // Fungsi untuk melakukan penghapusan data dengan method DELETE pada tabel author di database iLib
+	var res Response // Inisialisasi variable dari responsenya
+
+	con := db.CreateCon() // Inisialisasi dengan database
+
+	sqlStatement := "DELETE FROM author WHERE id_author = ?" // Query hapus data tablenya
+
+	stmt, err := con.Prepare(sqlStatement) // Variable persiapan awal sebelum eksekusi hapus data
+	if err != nil {
+		return res,err // di cek terlebih dahulu dalam persiapan apakah ada error
+	}
+
+	result, err := stmt.Exec(Id_author) // eksekusi query 
+	if err != nil {
+		return res,err // cek apakah saat ekesekusi query ada error
+	}
+
+	rowsAffected, err := result.RowsAffected() // Meminta return dari berapa banyak rows yang terdampak kena penghapusan data
+	if err != nil {
+		return res,err // cek apakah saat penghapusan dari rows yang kena dampak ada error
+	}
+
+	res.Status = http.StatusOK // set status 200 berhasil
+	res.Message = "Success" // kasih pesan
+	res.Data = map[string]int64{
+		"Data terhapus sebanyak" : rowsAffected, // dan tampilkan berapa banyak row yang kena dampak 
 	}
 
 	return res, nil
