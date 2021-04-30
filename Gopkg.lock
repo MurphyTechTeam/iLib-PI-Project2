@@ -70,11 +70,13 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:699d068af7aaa15f3e0282632500301396f9a4b8181b12a1643aa49c0d78a7bc"
+  digest = "1:ddd7c609b2ce890df292ead9ebfc2bbacc74ef1d518e59371e7b76e13468596e"
   name = "golang.org/x/crypto"
   packages = [
     "acme",
     "acme/autocert",
+    "bcrypt",
+    "blowfish",
   ]
   pruneopts = "UT"
   revision = "83a5a9bb288b4c9523e182ed4f621411a11de3df"
@@ -130,6 +132,7 @@
     "github.com/go-sql-driver/mysql",
     "github.com/labstack/echo",
     "github.com/tkanos/gonfig",
+    "golang.org/x/crypto/bcrypt",
   ]
   solver-name = "gps-cdcl"
   solver-version = 1

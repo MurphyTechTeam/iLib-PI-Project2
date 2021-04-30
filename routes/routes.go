@@ -26,5 +26,8 @@ func Init() *echo.Echo{
 	// Pemanggilan Delete Methods pada routes author untuk ke database
 	e.DELETE("/author", controllers.HapusAuthor)
 
+	// Melakukan validasi user secara sederhana (login) dengan metode bcrypt
+	e.GET("/make-hash/:password", controllers.GenerateHashPassword)
+
 	return e
 }
