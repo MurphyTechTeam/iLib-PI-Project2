@@ -29,5 +29,8 @@ func Init() *echo.Echo{
 	// Melakukan validasi user secara sederhana (login) dengan metode bcrypt
 	e.GET("/make-hash/:password", controllers.GenerateHashPassword)
 
+	// Melakukan authorization user
+	e.POST("/login", controllers.CheckingLogin)
+
 	return e
 }
