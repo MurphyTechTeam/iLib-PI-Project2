@@ -4,7 +4,9 @@ import (
 	"mhilmi999/project-2-mhilmi999/helpers"
 	"mhilmi999/project-2-mhilmi999/models"
 	"net/http"
+	"time"
 
+	"github.com/dgrijalva/jwt-go"
 	"github.com/labstack/echo"
 )
 
@@ -32,5 +34,25 @@ func CheckingLogin(c echo.Context) error {
 		return echo.ErrUnauthorized
 	}
 
-	return c.String(http.StatusOK, "Sukses Login")
+	// return c.String(http.StatusOK, "Sukses Login")
+	
+	// Pembuatan Generate Token
+	token := jwt.New(jwt.SigningMethodHS256)
+
+	claims := token.Claims.(jwt.MapClaims) // Setup payload 
+	claims["username"] = username
+	claims["level"] = "Application"
+	claims["exp_date"] = time.Now().Add(time.Hour * 72).Unix()
+
+	// Sekarang baru generate token yang ter-encode dan kirim sebagai responsenya
+	t, err := token.SignedString([]byte("UIDToken"))
+	if err != nil {
+		return c.JSON(http.StatusInternalServerError, map[string]string{
+			"messages": err.Error(),
+		})
+	}
+
+	return c.JSON(http.StatusOK, map[string]string{
+		"Token akses anda": t,
+	})
 }
