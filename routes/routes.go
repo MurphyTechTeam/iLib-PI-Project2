@@ -15,6 +15,13 @@ func Init() *echo.Echo{
 		return c.String(http.StatusOK, "Ini percobaan Echo nya dah jalan belum")
 	}) // Mendefinisikan routing awal akses nya
 
+	// Coba template (tampilan html) pada echo framework go
+	e.Renderer = controllers.NewRenderer("./view/*.html", true)
+	e.GET("/index", func(c echo.Context) error {
+		data := controllers.M{"message" : "Halo Halo Bandung!"}
+		return c.Render(http.StatusOK, "index.html",data)
+	})
+
 	// Pemanggilan GET Methods pada routes author dari database
 	e.GET("/author", controllers.FetchAllAuthor, middleware.IsAuth)
 
