@@ -48,3 +48,11 @@
 [[constraint]]
   name = "github.com/dgrijalva/jwt-go"
   version = "3.2.0"
+
+[[constraint]]
+  name = "github.com/Masterminds/sprig"
+  version = "2.22.0"
+
+[[constraint]]
+  name = "github.com/labstack/echo-contrib"
+  version = "0.5.2"

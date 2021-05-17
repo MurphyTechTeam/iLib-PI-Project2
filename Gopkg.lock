@@ -2,6 +2,30 @@
 
 
 [[projects]]
+  digest = "1:4c302144a9dfe7592d6809a97eeb3afee9e584810b9d659f9d99ad7e27a3eead"
+  name = "github.com/Masterminds/goutils"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "f1923532a168b8203bfe956d8cd3b17ebece5982"
+  version = "v1.1.1"
+
+[[projects]]
+  digest = "1:acd3946bd57e665227c8ebbe07fbd378422780999e332e9c3748a6c9144d020f"
+  name = "github.com/Masterminds/semver"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "7bb0c843b53d6ad21a3f619cb22c4b442bb3ef3e"
+  version = "v3.1.1"
+
+[[projects]]
+  digest = "1:b565deb585c50ab8e94fe5d6c9903f1495970b97814803e4ab0e70c0a9c87a30"
+  name = "github.com/Masterminds/sprig"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "e4c0945838d570720d876a6ad9b4568ed32317b4"
+  version = "v2.22.0"
+
+[[projects]]
   digest = "1:76dc72490af7174349349838f2fe118996381b31ea83243812a97e5a0fd5ed55"
   name = "github.com/dgrijalva/jwt-go"
   packages = ["."]
@@ -18,6 +42,54 @@
   version = "v1.6.0"
 
 [[projects]]
+  digest = "1:dfa0a7a6b64b2ac99259c4e79cc403470a4fa359c41029e0b8be4f419b0a0e5b"
+  name = "github.com/google/uuid"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "bfb86fa49a73e4194d93bea18d7acfe3694438ce"
+  version = "v1.2.0"
+
+[[projects]]
+  digest = "1:c79fb010be38a59d657c48c6ba1d003a8aa651fa56b579d959d74573b7dff8e1"
+  name = "github.com/gorilla/context"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "08b5f424b9271eedf6f9f0ce86cb9396ed337a42"
+  version = "v1.1.1"
+
+[[projects]]
+  digest = "1:e72d1ebb8d395cf9f346fd9cbc652e5ae222dd85e0ac842dc57f175abed6d195"
+  name = "github.com/gorilla/securecookie"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "e59506cc896acb7f7bf732d4fdf5e25f7ccd8983"
+  version = "v1.1.1"
+
+[[projects]]
+  digest = "1:8a4faf976f729a5bf9141d9fefdaf89e0550a34f05299f8102b2614f23e64658"
+  name = "github.com/gorilla/sessions"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "61fa50d034f99479a7de0d1c02c5e9dea5ad30cb"
+  version = "v1.2.1"
+
+[[projects]]
+  digest = "1:8613fa419b22b15397f8af1c38d64232b5dde9b3999f81b61d8d0137c2c7a9ac"
+  name = "github.com/huandu/xstrings"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "52197b1fb3155666d9613b4eb4ed72a86d1f8ab6"
+  version = "v1.3.2"
+
+[[projects]]
+  digest = "1:1b65aceb5bbbd69e4328dd6278507a822c6c3c5b910f6b02662601446ffbc679"
+  name = "github.com/imdario/mergo"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "29fb3d3bdc5512887f1dc9aedde6a0fed407fa8f"
+  version = "0.3.12"
+
+[[projects]]
   digest = "1:efd601ad1d1189884f37ed075fadb5bbd17f1f5acf5862827247c6da56d125ba"
   name = "github.com/labstack/echo"
   packages = [
@@ -27,6 +99,14 @@
   pruneopts = "UT"
   revision = "38772c686c76b501f94bd6cd5b77f5842e93b559"
   version = "v3.3.10"
+
+[[projects]]
+  digest = "1:431646838dda93dfb384c1010fca1bb0353c1ee030910d926bb64b32f1ba253a"
+  name = "github.com/labstack/echo-contrib"
+  packages = ["session"]
+  pruneopts = "UT"
+  revision = "7d9d9632a4aadf9b026436e43d5f96eca2d895a6"
+  version = "0.5.2"
 
 [[projects]]
   digest = "1:e8e65826d60fd82637fb9df06ecd651191b599f4a8f72b86362012f288778320"
@@ -58,6 +138,22 @@
   version = "v0.0.12"
 
 [[projects]]
+  digest = "1:31f13a52b50148c11a559ad6b1cfb278b397e8fdde60c0725c39f9d54329e763"
+  name = "github.com/mitchellh/copystructure"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "d4ce1f938f7a7ea2a40bff4544b56be9c00b5e84"
+  version = "v1.2.0"
+
+[[projects]]
+  digest = "1:841a8a30e8eebaf74b1939175249c3dbaa212dd029b8d4affb357535b9c7314f"
+  name = "github.com/mitchellh/reflectwalk"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "e0c24fdb021963cd2c4013097a0b993a7c4e344f"
+  version = "v1.0.2"
+
+[[projects]]
   digest = "1:dc48dff981a895912c33cf272b1d869c216d058bd4025736cb481d3ceeed6872"
   name = "github.com/tkanos/gonfig"
   packages = ["."]
@@ -83,13 +179,15 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:ddd7c609b2ce890df292ead9ebfc2bbacc74ef1d518e59371e7b76e13468596e"
+  digest = "1:92eb2551ce7f48622c09366fd24e066640c47bc149879c3757cbe7f74efb2f48"
   name = "golang.org/x/crypto"
   packages = [
     "acme",
     "acme/autocert",
     "bcrypt",
     "blowfish",
+    "pbkdf2",
+    "scrypt",
   ]
   pruneopts = "UT"
   revision = "83a5a9bb288b4c9523e182ed4f621411a11de3df"
@@ -142,9 +240,12 @@
   analyzer-name = "dep"
   analyzer-version = 1
   input-imports = [
+    "github.com/Masterminds/sprig",
     "github.com/dgrijalva/jwt-go",
     "github.com/go-sql-driver/mysql",
+    "github.com/gorilla/sessions",
     "github.com/labstack/echo",
+    "github.com/labstack/echo-contrib/session",
     "github.com/labstack/echo/middleware",
     "github.com/tkanos/gonfig",
     "golang.org/x/crypto/bcrypt",

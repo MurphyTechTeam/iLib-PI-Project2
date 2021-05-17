@@ -7,7 +7,7 @@ import (
 	"time"
 
 	"github.com/dgrijalva/jwt-go"
-	"github.com/labstack/echo"
+	"github.com/labstack/echo/v4"
 )
 
 func GenerateHashPassword(c echo.Context) error { // Fungsi untuk handling controller dalam peng-hashan password dari inputan user

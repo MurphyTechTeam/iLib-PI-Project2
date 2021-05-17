@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/labstack/echo"
+	"github.com/labstack/echo/v4"
 )
 
 func FetchAllAuthor(c echo.Context) error { // Fungsi untuk Get Method dalam error handling nya dari tabel author

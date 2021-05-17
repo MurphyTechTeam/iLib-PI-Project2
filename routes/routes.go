@@ -1,38 +1,67 @@
 package routes
 
 import (
+	"html/template"
 	"mhilmi999/project-2-mhilmi999/controllers"
-	"mhilmi999/project-2-mhilmi999/middleware"
-	"net/http"
 
-	"github.com/labstack/echo"
+	. "mhilmi999/project-2-mhilmi999/helpers"
+	"mhilmi999/project-2-mhilmi999/middlewares"
+
+	"github.com/Masterminds/sprig"
+	"github.com/gorilla/sessions"
+	"github.com/labstack/echo-contrib/session"
+	"github.com/labstack/echo/v4"
+	"github.com/labstack/echo/v4/middleware"
 )
 
-func Init() *echo.Echo{
+func Init() *echo.Echo {
 	e := echo.New()
 
-	e.GET("/", func(c echo.Context) error {
-		return c.String(http.StatusOK, "Ini percobaan Echo nya dah jalan belum")
-	}) // Mendefinisikan routing awal akses nya
+	// e.GET("/", func(c echo.Context) error {
+	// 	return c.String(http.StatusOK, "Ini percobaan Echo nya dah jalan belum")
+	// }) // Mendefinisikan routing awal akses nya
 
-	// Coba template (tampilan html) pada echo framework go
-	e.Renderer = controllers.NewRenderer("./view/*.html", true)
-	e.GET("/index", func(c echo.Context) error {
-		data := controllers.M{"message" : "Halo Halo Bandung!"}
-		return c.Render(http.StatusOK, "index.html",data)
+	// Coba template lain (tampilan html)
+	//---------------------------------------------//
+	e.Pre(middleware.MethodOverrideWithConfig(middleware.MethodOverrideConfig{
+		Getter: middleware.MethodFromForm("_method"),
+	}))
+	e.Use(middleware.Logger())
+	e.Use(middleware.Recover())
+
+	e.Use(middleware.Static("assets"))
+	e.Use(middleware.CORSWithConfig(middleware.CORSConfig{
+		AllowOrigins: []string{"*"},
+		AllowMethods: []string{echo.GET, echo.POST, echo.PUT, echo.DELETE},
+	}))
+	e.Use(session.Middleware(sessions.NewCookieStore([]byte("UIDToken"))))
+	templates := make(map[string]*template.Template)
+	templates["home.html"] = template.Must(template.New("base").Funcs(sprig.FuncMap()).ParseFiles("view/header.html", "view/home.html", "view/footer.html"))
+	e.Renderer = &DaftarTemplate{
+		Templates: templates,
+	}
+	e.Use(func(next echo.HandlerFunc) echo.HandlerFunc {
+		return func(c echo.Context) error {
+			cc := &middlewares.CustomContext{c}
+			return next(cc)
+		}
 	})
 
+	e.GET("/", controllers.HomeView)
+	//---------------------------------------------//
+	// Coba template lain (tampilan html)
+
 	// Pemanggilan GET Methods pada routes author dari database
-	e.GET("/author", controllers.FetchAllAuthor, middleware.IsAuth)
+	e.GET("/author", controllers.FetchAllAuthor, middlewares.IsAuth)
 
 	// Pemanggilan Post Methods pada routes author dari database
-	e.POST("/author", controllers.StoreAuthor, middleware.IsAuth)
-	
+	e.POST("/author", controllers.StoreAuthor, middlewares.IsAuth)
+
 	// Pemanggilan Put Methods pada routes author untuk ke database
-	e.PUT("/author", controllers.UpdateAuthor, middleware.IsAuth)
+	e.PUT("/author", controllers.UpdateAuthor, middlewares.IsAuth)
 
 	// Pemanggilan Delete Methods pada routes author untuk ke database
-	e.DELETE("/author", controllers.HapusAuthor, middleware.IsAuth)
+	e.DELETE("/author", controllers.HapusAuthor, middlewares.IsAuth)
 
 	// Melakukan validasi user secara sederhana (login) dengan metode bcrypt
 	e.GET("/make-hash/:password", controllers.GenerateHashPassword)
