@@ -37,6 +37,7 @@ func Init() *echo.Echo {
 	e.Use(session.Middleware(sessions.NewCookieStore([]byte("UIDToken"))))
 	templates := make(map[string]*template.Template)
 	templates["home.html"] = template.Must(template.New("base").Funcs(sprig.FuncMap()).ParseFiles("view/header.html", "view/home.html", "view/footer.html"))
+	templates["login.html"] = template.Must(template.New("base").Funcs(sprig.FuncMap()).ParseFiles("view/login.html"))
 	e.Renderer = &DaftarTemplate{
 		Templates: templates,
 	}
@@ -48,26 +49,30 @@ func Init() *echo.Echo {
 	})
 
 	e.GET("/", controllers.HomeView)
+	e.GET("/login", controllers.LoginView)
+	// Melakukan authorization user
+	e.POST("/login", controllers.CheckingLogin)
 	//---------------------------------------------//
 	// Coba template lain (tampilan html)
 
+	//--------------------------------------------------------------------//
+	// RESTFUL API nya
 	// Pemanggilan GET Methods pada routes author dari database
 	e.GET("/author", controllers.FetchAllAuthor, middlewares.IsAuth)
-
+	
 	// Pemanggilan Post Methods pada routes author dari database
 	e.POST("/author", controllers.StoreAuthor, middlewares.IsAuth)
-
+	
 	// Pemanggilan Put Methods pada routes author untuk ke database
 	e.PUT("/author", controllers.UpdateAuthor, middlewares.IsAuth)
-
+	
 	// Pemanggilan Delete Methods pada routes author untuk ke database
 	e.DELETE("/author", controllers.HapusAuthor, middlewares.IsAuth)
-
+	
 	// Melakukan validasi user secara sederhana (login) dengan metode bcrypt
 	e.GET("/make-hash/:password", controllers.GenerateHashPassword)
+	//--------------------------------------------------------------------//
 
-	// Melakukan authorization user
-	e.POST("/login", controllers.CheckingLogin)
 
 	return e
 }

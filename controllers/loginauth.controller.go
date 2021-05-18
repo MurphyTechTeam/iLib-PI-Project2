@@ -51,7 +51,6 @@ func CheckingLogin(c echo.Context) error {
 			"messages": err.Error(),
 		})
 	}
-
 	return c.JSON(http.StatusOK, map[string]string{
 		"Token akses anda": t,
 	})
