@@ -12,6 +12,9 @@ import (
 	"github.com/labstack/echo-contrib/session"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
+
+	"github.com/swaggo/echo-swagger"
+	_ "github.com/swaggo/echo-swagger/example/docs"
 )
 
 func Init() *echo.Echo {
@@ -56,6 +59,11 @@ func Init() *echo.Echo {
 	// Coba template lain (tampilan html)
 
 	//--------------------------------------------------------------------//
+
+
+	// API DOCS with Swagger
+	e.GET("/documentation/*", echoSwagger.WrapHandler)
+
 	// RESTFUL API nya
 	// Pemanggilan GET Methods pada routes author dari database
 	e.GET("/author", controllers.FetchAllAuthor)
