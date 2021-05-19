@@ -58,7 +58,7 @@ func Init() *echo.Echo {
 	//--------------------------------------------------------------------//
 	// RESTFUL API nya
 	// Pemanggilan GET Methods pada routes author dari database
-	e.GET("/author", controllers.FetchAllAuthor, middlewares.IsAuth)
+	e.GET("/author", controllers.FetchAllAuthor)
 	
 	// Pemanggilan Post Methods pada routes author dari database
 	e.POST("/author", controllers.StoreAuthor, middlewares.IsAuth)
