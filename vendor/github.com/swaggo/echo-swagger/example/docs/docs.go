@@ -9,217 +9,230 @@ import (
 )
 
 var doc = `{
+    "schemes": ["http"],
     "swagger": "2.0",
     "info": {
-        "description": "This is a sample server Petstore server.",
-        "title": "Swagger Example API",
-        "termsOfService": "http://swagger.io/terms/",
-        "contact": {
-            "name": "API Support",
-            "url": "http://www.swagger.io/support",
-            "email": "support@swagger.io"
-        },
-        "license": {
-            "name": "Apache 2.0",
-            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
-        },
-        "version": "1.0"
+        "title": "iLib Perpustakaan API",
     },
-    "host": "localhost:1234/author",
+    "host": "localhost:1234",
     "basePath": "",
+    "securityDefinitions": {        
+        "bearerAuth": {
+            "type": "apiKey",
+            "scheme": "bearer",
+            "name": "Authorization",
+            "in": "header"
+        }
+      },
     "paths": {
-        "/file/upload": {
-            "post": {
-                "description": "Upload file",
+        "/author": {
+            "get": {
+                "description": "Data Penulis yang terdaftar pada iLib",
+                "tags" : [author],
                 "consumes": [
                     "multipart/form-data"
                 ],
                 "produces": [
                     "application/json"
                 ],
-                "summary": "Upload file",
-                "operationId": "file.upload",
-                "parameters": [
-                    {
-                        "type": "file",
-                        "description": "this is a test file",
-                        "name": "file",
-                        "in": "formData",
-                        "required": true
-                    }
-                ],
+                "summary": "Data Penulis yang terdaftar pada iLib",
+                "parameters": [],
                 "responses": {
                     "200": {
-                        "description": "ok",
+                        "description": "OK",
                         "schema": {
-                            "type": "string"
+                            "type": "string",
+                            "$ref": "#/definitions/web.GetAuthorSuccess"
                         }
                     },
                     "400": {
-                        "description": "We need ID!!",
-                        "schema": {
-                            "type": "object",
-                            "$ref": "#/definitions/web.APIError"
+                        "description": "Bad Request",
+                        "schema" : {
+                            "type": "string",
+                            "$ref": "#/definitions/web.WrongMethod"
                         }
                     },
                     "404": {
-                        "description": "Can not find ID",
-                        "schema": {
-                            "type": "object",
-                            "$ref": "#/definitions/web.APIError"
-                        }
+                        "description": "Not Found"
                     }
                 }
-            }
-        },
-        "/testapi/get-string-by-int/{some_id}": {
-            "get": {
-                "description": "get string by ID",
+            },
+            "post": {
+                "description": "Pada metode ini pengguna dapat menambahkan nama penulis yang belum terdaftar pada API iLib",
+                "tags" : [author],
                 "consumes": [
                     "application/json"
+                ],
+                "security":[
+                    "bearerAuth": []
                 ],
                 "produces": [
                     "application/json"
                 ],
-                "summary": "Add a new pet to the store",
-                "operationId": "get-string-by-int",
-                "parameters": [
-                    {
-                        "type": "int",
-                        "description": "Some ID",
-                        "name": "some_id",
-                        "in": "path",
-                        "required": true
-                    },
-                    {
-                        "description": "Some ID",
-                        "name": "some_id",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "type": "object",
-                            "$ref": "#/definitions/web.Pet"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "ok",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    "400": {
-                        "description": "We need ID!!",
-                        "schema": {
-                            "type": "object",
-                            "$ref": "#/definitions/web.APIError"
-                        }
-                    },
-                    "404": {
-                        "description": "Can not find ID",
-                        "schema": {
-                            "type": "object",
-                            "$ref": "#/definitions/web.APIError"
-                        }
-                    }
-                }
-            }
-        },
-        "/testapi/get-struct-array-by-string/{some_id}": {
-            "get": {
-                "description": "get struct array by ID",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "operationId": "get-struct-array-by-string",
+                "summary": "Menambahkan Penulis Buku iLib",
                 "parameters": [
                     {
                         "type": "string",
-                        "description": "Some ID",
-                        "name": "some_id",
-                        "in": "path",
-                        "required": true
-                    },
-                    {
-                        "type": "int",
-                        "description": "Offset",
-                        "name": "offset",
-                        "in": "query",
-                        "required": true
-                    },
-                    {
-                        "type": "int",
-                        "description": "Offset",
-                        "name": "limit",
+                        "description": "Nama_author",
+                        "name": "Nama_author",
                         "in": "query",
                         "required": true
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "ok",
+                        "description": "OK",
                         "schema": {
-                            "type": "string"
+                            "type": "string",
+                            "$ref": "#/definitions/web.PostAuthorSuccess"
                         }
                     },
                     "400": {
-                        "description": "We need ID!!",
+                        "description": "Bad Request",
                         "schema": {
                             "type": "object",
-                            "$ref": "#/definitions/web.APIError"
+                            "$ref": "#/definitions/web.WrongMethod"
                         }
                     },
                     "404": {
-                        "description": "Can not find ID",
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "put": {
+                "description": "Di metode ini pengguna dapat melakukan perubahan edit nama penulis yang mungkin terdapat kesalahan penulisan (typo) atau pun gelar dari penulis tersebut.",
+                "tags" : [author],
+                "consumes": [
+                    "application/json"
+                ],
+                "security":[
+                    "bearerAuth": []
+                ],
+                "produces": [
+                    "application/json"
+                ],  
+                "summary": "Menyunting nama penulis yang telah ada",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Id_author",
+                        "name": "Id_author",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Nama_author",
+                        "name": "Nama_author",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "string",
+                            "$ref": "#/definitions/web.PutAuthorSuccess"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
                         "schema": {
                             "type": "object",
-                            "$ref": "#/definitions/web.APIError"
+                            "$ref": "#/definitions/web.WrongMethod"
                         }
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "delete": {
+                "description": "Menghapus data nama penulis yang ada di iLib",
+                "tags" : [author],
+                "consumes": [
+                    "application/json"
+                ],
+                "security":[
+                    "bearerAuth": []
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Melakukan pembersihan data dari nama penulis yang sudah tidak ada lagi di iLib",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Id_author",
+                        "name": "Id_author",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "string",
+                            "$ref": "#/definitions/web.DeleteAuthorSuccess"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/web.WrongMethod"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found"
                     }
                 }
             }
         }
     },
     "definitions": {
-        "web.APIError": {
+        "web.GetAuthorSuccess": {
             "type": "object",
             "properties": {
-                "CreatedAt": {
-                    "type": "string",
-                    "format": "date-time"
-                },
-                "ErrorCode": {
+                "id": {
                     "type": "integer"
                 },
-                "ErrorMessage": {
+                "nama": {
                     "type": "string"
                 }
             }
         },
-        "web.Pet": {
+        "web.PostAuthorSuccess": {
             "type": "object",
             "properties": {
-                "Category": {
-                    "type": "object"
-                },
-                "ID": {
-                    "type": "integer"
-                },
-                "Name": {
+                "data": {
                     "type": "string"
-                },
-                "PhotoUrls": {
-                    "type": "array"
-                },
-                "Status": {
+                }
+            }
+        },
+        "web.PutAuthorSuccess": {
+            "type": "object",
+            "properties": {
+                "data": {
                     "type": "string"
-                },
-                "Tags": {
-                    "type": "array"
+                }
+            }
+        },
+        "web.DeleteAuthorSuccess": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "string"
+                }
+            }
+        },
+        "web.WrongMethod": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
                 }
             }
         }
