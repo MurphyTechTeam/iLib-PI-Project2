@@ -34,7 +34,7 @@
                 </div>
                 <div class="d-flex justify-content-center form_container">
                     <form action="/login" method="post">
-                        <div class="input-group mb-3">
+                        <div class="input-group mb-2">
                             <div class="input-group-append">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
                             </div>
@@ -42,25 +42,31 @@
                         </div>
                         <div class="input-group mb-2">
                             <div class="input-group-append">
+                                <span class="input-group-text"><i class="fas fa-envelope-open-text"></i></span>
+                            </div>
+                            <input type="text" name="email" id="email" class="form-control input_pass" placeholder="Masukan email anda">
+                        </div>
+                        <div class="input-group mb-2">
+                            <div class="input-group-append">
                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
                             </div>
                             <input type="password" name="password" id="password" class="form-control input_pass" placeholder="Masukan kata sandi anda">
                         </div>
-                        <div class="form-group">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="customControlInline">
-                                <label class="custom-control-label" for="customControlInline">Remember me</label>
+                        <div class="input-group mb-2">
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="fas fa-key"></i></span>
                             </div>
+                            <input type="password" name="password" id="password" class="form-control input_pass" placeholder="Konfirmasi kata sandi anda">
                         </div>
                         <div class="d-flex justify-content-center mt-3 login_container">
-                            <input type="submit" value="Login" name="button" class="btn login_btn" />
+                            <input type="submit" value="Register" name="button" class="btn login_btn" />
                         </div>
                     </form>
                 </div>
 
                 <div class="mt-4">
                     <div class="d-flex justify-content-center links">
-                        Don't have an account? <a href="/register" class="ml-2">Sign Up</a>
+                        Already have an account? <a href="/login" class="ml-2">Login</a>
                     </div>
                 </div>
             </div>

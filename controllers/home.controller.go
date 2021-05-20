@@ -20,3 +20,10 @@ func LoginView(c echo.Context) error {
 		"flash": flash,
 	})
 }
+
+func RegisterView(c echo.Context) error {
+	flash := c.(*CustomContext).GetFlash()
+	return c.Render(http.StatusOK, "register.html", map[string]interface{}{
+		"flash": flash,
+	})
+}
