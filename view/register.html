@@ -18,13 +18,51 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
     <link rel="stylesheet" href="css/loginForm.css">
 
+    <style>
+        #message {
+            display: none;
+            background: #f1f1f1;
+            color: #000;
+            position: relative;
+            padding: 20px;
+            margin-top: 10px;
+        }
+        
+        #message p {
+            padding: 10px 35px;
+            font-size: 18px;
+        }
+        
+        .valid {
+            color: green;
+        }
+        
+        .valid:before {
+            position: relative;
+            left: -35px;
+            content: "✔";
+            color: green;
+        }
+        /* Add a red text color and an "x" icon when the requirements are wrong */
+        
+        .invalid {
+            color: red;
+        }
+        
+        .invalid:before {
+            position: relative;
+            left: -35px;
+            content: "✖";
+            color: red;
+        }
+    </style>
 </head>
 
 
 <body>
     <div class="container h-100">
         <div class="d-flex justify-content-center h-100">
-            <div class="user_card shadow-lg">
+            <div class="card user_card shadow-lg" style="width: 30rem; height: 40rem;">
                 <div class="d-flex justify-content-center">
                     <div class="brand_logo_container">
                         <a href="/">
@@ -33,35 +71,33 @@
                     </div>
                 </div>
                 <div class="d-flex justify-content-center form_container">
-                    <form action="/login" method="post">
+                    <form action="/register" method="post">
                         <div class="input-group mb-2">
                             <div class="input-group-append">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
                             </div>
                             <input type="text" name="username" id="username" class="form-control input_user" placeholder="Masukan username anda">
                         </div>
-                        <div class="input-group mb-2">
-                            <div class="input-group-append">
-                                <span class="input-group-text"><i class="fas fa-envelope-open-text"></i></span>
-                            </div>
-                            <input type="text" name="email" id="email" class="form-control input_pass" placeholder="Masukan email anda">
-                        </div>
+
                         <div class="input-group mb-2">
                             <div class="input-group-append">
                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
                             </div>
                             <input type="password" name="password" id="password" class="form-control input_pass" placeholder="Masukan kata sandi anda">
                         </div>
-                        <div class="input-group mb-2">
-                            <div class="input-group-append">
-                                <span class="input-group-text"><i class="fas fa-key"></i></span>
-                            </div>
-                            <input type="password" name="password" id="password" class="form-control input_pass" placeholder="Konfirmasi kata sandi anda">
-                        </div>
+
                         <div class="d-flex justify-content-center mt-3 login_container">
                             <input type="submit" value="Register" name="button" class="btn login_btn" />
                         </div>
                     </form>
+                </div>
+
+                <div id="message">
+                    <h5>Password harus memenuhi syarat : </h5>
+                    <p id="letter" class="invalid">Mengandung huruf kecil</p>
+                    <p id="capital" class="invalid">Mengandung huruf besar</p>
+                    <p id="number" class="invalid">Mengandung angka</p>
+                    <p id="length" class="invalid">Minimal 6 karakter</p>
                 </div>
 
                 <div class="mt-4">
@@ -73,6 +109,66 @@
         </div>
     </div>
 </body>
+
+<script>
+    var myInput = document.getElementById("password");
+    var letter = document.getElementById("letter");
+    var capital = document.getElementById("capital");
+    var number = document.getElementById("number");
+    var length = document.getElementById("length");
+
+    // When the user clicks on the password field, show the message box
+    myInput.onfocus = function() {
+        document.getElementById("message").style.display = "block";
+    }
+
+    // When the user clicks outside of the password field, hide the message box
+    myInput.onblur = function() {
+        document.getElementById("message").style.display = "none";
+    }
+
+    // When the user starts to type something inside the password field
+    myInput.onkeyup = function() {
+        // Validate lowercase letters
+        var lowerCaseLetters = /[a-z]/g;
+        if (myInput.value.match(lowerCaseLetters)) {
+            letter.classList.remove("invalid");
+            letter.classList.add("valid");
+        } else {
+            letter.classList.remove("valid");
+            letter.classList.add("invalid");
+        }
+
+        // Validate capital letters
+        var upperCaseLetters = /[A-Z]/g;
+        if (myInput.value.match(upperCaseLetters)) {
+            capital.classList.remove("invalid");
+            capital.classList.add("valid");
+        } else {
+            capital.classList.remove("valid");
+            capital.classList.add("invalid");
+        }
+
+        // Validate numbers
+        var numbers = /[0-9]/g;
+        if (myInput.value.match(numbers)) {
+            number.classList.remove("invalid");
+            number.classList.add("valid");
+        } else {
+            number.classList.remove("valid");
+            number.classList.add("invalid");
+        }
+
+        // Validate length
+        if (myInput.value.length >= 8) {
+            length.classList.remove("invalid");
+            length.classList.add("valid");
+        } else {
+            length.classList.remove("valid");
+            length.classList.add("invalid");
+        }
+    }
+</script>
 
 </html>
 

@@ -1,53 +1,26 @@
 {{ define "base.html" }} {{template "header"}}
-
-<body>
-    <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-    <nav class="nav">
-        <div class="burger">
-            <div class="burger__patty"></div>
-        </div>
-
-        <ul class="nav__list">
-            <li class="nav__item">
-                <a href="#1" class="nav__link c-blue"><img src="img/home-icon.png" alt=""></a>
-            </li>
-            <li class="nav__item">
-                <a href="#2" class="nav__link c-yellow scrolly"><img src="img/about-icon.png" alt=""></a>
-            </li>
-            <li class="nav__item">
-                <a href="#3" class="nav__link c-red"><img src="img/projects-icon.png" alt=""></a>
-            </li>
-            <li class="nav__item">
-                <a href="/login" class="nav__link c-green"><img src="img/login-icon.png" alt=""></a>
-            </li>
-        </ul>
-    </nav>
-
-    <section class="panel b-blue" id="1">
-        <article class="panel__wrapper">
-            <div class="panel__content">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-8 col-md-offset-2">
-                            <div class="home-content">
-                                <div class="home-heading">
-                                    <h1><em>iLib</em> Perpustakaan API</h1>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="home-box-content">
-                                            <div class="left-text">
-                                                <h4>Cari <em>Tau</em> dengan <em>Tepat</em></h4>
-                                                <p>Sistem informasi API yang menampilkan data-data yang ada pada Perpustakaan iLib</p>
-                                                <div class="primary-button">
-                                                    <a href="/register">Cari tahu sekarang</a>
-                                                </div>
+<section class="panel b-blue" id="1">
+    <article class="panel__wrapper">
+        <div class="panel__content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="home-content">
+                            <div class="home-heading">
+                                <h1><em>iLib</em> Perpustakaan API</h1>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="home-box-content">
+                                        <div class="left-text">
+                                            <h4>Cari <em>Tau</em> dengan <em>Tepat</em></h4>
+                                            <p>Sistem informasi API yang menampilkan data-data yang ada pada Perpustakaan iLib</p>
+                                            <div class="primary-button">
+                                                <a href="/register">Cari tahu sekarang</a>
                                             </div>
-                                            <div class="right-image">
-                                                <img src="img/right-home-image.png" alt="">
-                                            </div>
+                                        </div>
+                                        <div class="right-image">
+                                            <img src="img/right-home-image.png" alt="">
                                         </div>
                                     </div>
                                 </div>
@@ -56,62 +29,63 @@
                     </div>
                 </div>
             </div>
-        </article>
-    </section>
-    <section class="panel b-yellow" id="2">
-        <article class="panel__wrapper">
-            <div class="panel__content">
-                <div class="container">
+        </div>
+    </article>
+</section>
+<section class="panel b-yellow" id="2">
+    <article class="panel__wrapper">
+        <div class="panel__content">
+            <div class="container">
 
-                    <div class="col-md-12 ">
-                        <div class="about-content">
-                            <div class="heading">
-                                <h4>Dokumentasi</h4>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="row align-items-center justify-content-center">
-                                    <div class="containercardSlide4">
-                                        <div class="cardSlide4">
-                                            <div class="imgBx">
-                                                <img src="img/http.jpg" />
-                                            </div>
-                                            <div class="kontenSlide4">
-                                                <h2>HTTP Method & Respon</h2>
-                                                <p>
-                                                    Pelajari dan pahami <code>method dan respon</code> dari Restful API ini.
-                                                </p>
-                                                <a href="/documentation/index.html" class="btn btn-primary shadow">Selengkapnya</a>
-                                            </div>
+                <div class="col-md-12 ">
+                    <div class="about-content">
+                        <div class="heading">
+                            <h4>Dokumentasi</h4>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="row align-items-center justify-content-center">
+                                <div class="containercardSlide4">
+                                    <div class="cardSlide4">
+                                        <div class="imgBx">
+                                            <img src="img/http.jpg" />
                                         </div>
-                                        <div class="cardSlide4">
-                                            <div class="imgBx">
-                                                <img src="img/jwtgo.jpg" />
-                                            </div>
-                                            <div class="kontenSlide4">
-                                                <h2>Generate Token Anda</h2>
-                                                <p>
-                                                    Daftarkan akun Anda untuk menikmati <i>service</i> tanpa batas dari <strong>API</strong> ini
-                                                </p>
-                                                <a href="/login" class="btn btn-primary shadow">Selengkapnya</a>
-                                            </div>
+                                        <div class="kontenSlide4">
+                                            <h2>HTTP Method & Respon</h2>
+                                            <p>
+                                                Pelajari dan pahami <code>method dan respon</code> dari Restful API ini.
+                                            </p>
+                                            <a href="/documentation/index.html" class="btn btn-primary shadow">Selengkapnya</a>
                                         </div>
-                                        <div class="cardSlide4">
-                                            <div class="imgBx">
-                                                <img src="img/implement.jpg" />
-                                            </div>
-                                            <div class="kontenSlide4">
-                                                <h2>Contoh Penggunaan</h2>
-                                                <p>
-                                                    Coba jalankan <strong> API </strong> ini secara <i>realtime</i> menggunakan <i>third party </i> dari <strong>Swagger</strong>
-                                                </p>
-                                                <a href="/documentation/index.html" class="btn btn-primary shadow">Selengkapnya</a>
-                                            </div>
+                                    </div>
+                                    <div class="cardSlide4">
+                                        <div class="imgBx">
+                                            <img src="img/jwtgo.jpg" />
                                         </div>
-                                        <!-- <div class="about-box-content">
+                                        <div class="kontenSlide4">
+                                            <h2>Generate Token Anda</h2>
+                                            <p>
+                                                Daftarkan akun Anda untuk menikmati <i>service</i> tanpa batas dari <strong>API</strong> ini
+                                            </p>
+                                            <a href="/login" class="btn btn-primary shadow">Selengkapnya</a>
+                                        </div>
+                                    </div>
+                                    <div class="cardSlide4">
+                                        <div class="imgBx">
+                                            <img src="img/implement.jpg" />
+                                        </div>
+                                        <div class="kontenSlide4">
+                                            <h2>Contoh Penggunaan</h2>
+                                            <p>
+                                                Coba jalankan <strong> API </strong> ini secara <i>realtime</i> menggunakan <i>third party </i> dari <strong>Swagger</strong>
+                                            </p>
+                                            <a href="/documentation/index.html" class="btn btn-primary shadow">Selengkapnya</a>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="about-box-content">
                                             <img src="img/about-image.png" alt="">
                                         </div> -->
-                                    </div>
-                                    <!-- <div class="col-md-7 col-md-offset-5">
+                                </div>
+                                <!-- <div class="col-md-7 col-md-offset-5">
                                         <div class="about-box-text">
                                             <h4>Referensi Terlengkap</h4>
                                             <p>I-Lib merupakan sebuah sistem perpustakaan online untuk memudahkan pemustaka dalam meminjam buku. </p>
@@ -120,205 +94,205 @@
                                             </div>
                                         </div>
                                     </div> -->
-                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </article>
-    </section>
-    <section class="panel b-red" id="3">
-        <article class="panel__wrapper">
-            <div class="panel__content">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-8 col-md-offset-2">
-                            <div class="projects-content">
-                                <div class="heading">
-                                    <h4>Panduan Instalasi API</h4>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="owl-carousel owl-theme projects-container">
-                                            <div>
-                                                <div class="project-item">
-                                                    <a href="img/project-item-01.jpg" data-lightbox="image-1"><img src="img/project-item-01.jpg" alt=""></a>
-                                                    <div class="text-content">
-                                                        <h4>Pra-kata Instalasi</h4>
-                                                        <ol>
-                                                            <li>
-                                                                <a style="color: blue;" href="https://golang.org/doc/install#download">Install Go-lang</a>
-                                                            </li>
-                                                            <li>
-                                                                Sesuaikan $GOPATH dengan preferensi Anda
-                                                            </li>
-                                                            <li>
-                                                                Clone source code dengan command <br>
-                                                                <code>go get -u https://github.com/2021-IT-Pemrograman-Integratif/project-2-mhilmi999.git</code>
-                                                            </li>
-                                                        </ol>
+        </div>
+    </article>
+</section>
+<section class="panel b-red" id="3">
+    <article class="panel__wrapper">
+        <div class="panel__content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="projects-content">
+                            <div class="heading">
+                                <h4>Panduan Instalasi API</h4>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="owl-carousel owl-theme projects-container">
+                                        <div>
+                                            <div class="project-item">
+                                                <a href="img/project-item-01.jpg" data-lightbox="image-1"><img src="img/project-item-01.jpg" alt=""></a>
+                                                <div class="text-content">
+                                                    <h4>Pra-kata Instalasi</h4>
+                                                    <ol>
+                                                        <li>
+                                                            <a style="color: blue;" href="https://golang.org/doc/install#download">Install Go-lang</a>
+                                                        </li>
+                                                        <li>
+                                                            Sesuaikan $GOPATH dengan preferensi Anda
+                                                        </li>
+                                                        <li>
+                                                            Clone source code dengan command <br>
+                                                            <code>go get -u https://github.com/2021-IT-Pemrograman-Integratif/project-2-mhilmi999.git</code>
+                                                        </li>
+                                                    </ol>
 
 
-                                                    </div>
                                                 </div>
                                             </div>
-                                            <div>
-                                                <div class="project-item">
-                                                    <a href="img/project-item-02.jpg" data-lightbox="image-1"><img src="img/project-item-02.jpg" alt=""></a>
-                                                    <div class="text-content">
-                                                        <h4>Depedensi</h4>
-                                                        <ol>
-                                                            <li>
-                                                                Gunakan go module <code>go mod init</code>
-                                                            </li>
-                                                            <li>
-                                                                Download module yang digunakan <code>go mod tidy</code>
-                                                            </li>
-                                                            <li>
-                                                                Build project <code>go build</code>
-                                                            </li>
-                                                            <li>Dapat juga menggunakan <i>depedency manager</i> dengan mengetikan <code>dep ensure</code></li>
-                                                        </ol>
-                                                    </div>
+                                        </div>
+                                        <div>
+                                            <div class="project-item">
+                                                <a href="img/project-item-02.jpg" data-lightbox="image-1"><img src="img/project-item-02.jpg" alt=""></a>
+                                                <div class="text-content">
+                                                    <h4>Depedensi</h4>
+                                                    <ol>
+                                                        <li>
+                                                            Gunakan go module <code>go mod init</code>
+                                                        </li>
+                                                        <li>
+                                                            Download module yang digunakan <code>go mod tidy</code>
+                                                        </li>
+                                                        <li>
+                                                            Build project <code>go build</code>
+                                                        </li>
+                                                        <li>Dapat juga menggunakan <i>depedency manager</i> dengan mengetikan <code>dep ensure</code></li>
+                                                    </ol>
                                                 </div>
                                             </div>
-                                            <div>
-                                                <div class="project-item">
-                                                    <a href="img/project-item-03.jpg" data-lightbox="image-1"><img src="img/project-item-03.jpg" alt=""></a>
-                                                    <div class="text-content">
-                                                        <h4>Konfirgurasi DB</h4>
-                                                        <ol>
-                                                            <li>
-                                                                Buat baru dan <i>import</i> DB dari repo pada SQL Anda
-                                                            </li>
-                                                            <li>
-                                                                Edit file <code>config.json</code> pada folder config </li>
-                                                            <li>
-                                                                Konfigurasikan <code>"DB_USERNAME", "DB_PASSWORD", "DB_PORT", "DB_HOST", "DB_NAME"</code> sesuai preferensi</li>
-                                                            <li>Simpan konfigurasi database</li>
-                                                        </ol>
-                                                    </div>
+                                        </div>
+                                        <div>
+                                            <div class="project-item">
+                                                <a href="img/project-item-03.jpg" data-lightbox="image-1"><img src="img/project-item-03.jpg" alt=""></a>
+                                                <div class="text-content">
+                                                    <h4>Konfirgurasi DB</h4>
+                                                    <ol>
+                                                        <li>
+                                                            Buat baru dan <i>import</i> DB dari repo pada SQL Anda
+                                                        </li>
+                                                        <li>
+                                                            Edit file <code>config.json</code> pada folder config </li>
+                                                        <li>
+                                                            Konfigurasikan <code>"DB_USERNAME", "DB_PASSWORD", "DB_PORT", "DB_HOST", "DB_NAME"</code> sesuai preferensi</li>
+                                                        <li>Simpan konfigurasi database</li>
+                                                    </ol>
                                                 </div>
                                             </div>
-                                            <div>
-                                                <div class="project-item">
-                                                    <a href="img/project-item-04.jpg" data-lightbox="image-1"><img src="img/project-item-04.jpg" alt=""></a>
-                                                    <div class="text-content">
-                                                        <h4>Run Web Server</h4>
-                                                        <ol>
-                                                            <li>
-                                                                Jalankan dengan command <code>go run main.go</code>
-                                                            </li>
-                                                            <li>
-                                                                Buka browser dan ketikan URL <code>localhost:1234/</code>
-                                                            </li>
-                                                        </ol>
-                                                    </div>
+                                        </div>
+                                        <div>
+                                            <div class="project-item">
+                                                <a href="img/project-item-04.jpg" data-lightbox="image-1"><img src="img/project-item-04.jpg" alt=""></a>
+                                                <div class="text-content">
+                                                    <h4>Run Web Server</h4>
+                                                    <ol>
+                                                        <li>
+                                                            Jalankan dengan command <code>go run main.go</code>
+                                                        </li>
+                                                        <li>
+                                                            Buka browser dan ketikan URL <code>localhost:1234/</code>
+                                                        </li>
+                                                    </ol>
                                                 </div>
                                             </div>
-                                            <div>
-                                                <div class="project-item">
-                                                    <a href="img/project-item-05.jpg" data-lightbox="image-1"><img src="img/project-item-05.jpg" alt=""></a>
-                                                    <div class="text-content">
-                                                        <h4>Daftar Package</h4>
-                                                        <ul style="list-style-type:circle;">
-                                                            <li>
-                                                                <code>github.com/Masterminds/goutils</code>
-                                                            </li>
-                                                            <li>
-                                                                <code>github.com/Masterminds/semver</code>
-                                                            </li>
-                                                            <li>
-                                                                <code>github.com/Masterminds/sprig</code>
-                                                            </li>
-                                                            <li>
-                                                                <code>github.com/dgrijalva/jwt-go</code>
-                                                            </li>
-                                                            <li>
-                                                                <code>github.com/go-sql-driver/mysql</code>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
+                                        </div>
+                                        <div>
+                                            <div class="project-item">
+                                                <a href="img/project-item-05.jpg" data-lightbox="image-1"><img src="img/project-item-05.jpg" alt=""></a>
+                                                <div class="text-content">
+                                                    <h4>Daftar Package</h4>
+                                                    <ul style="list-style-type:circle;">
+                                                        <li>
+                                                            <code>github.com/Masterminds/goutils</code>
+                                                        </li>
+                                                        <li>
+                                                            <code>github.com/Masterminds/semver</code>
+                                                        </li>
+                                                        <li>
+                                                            <code>github.com/Masterminds/sprig</code>
+                                                        </li>
+                                                        <li>
+                                                            <code>github.com/dgrijalva/jwt-go</code>
+                                                        </li>
+                                                        <li>
+                                                            <code>github.com/go-sql-driver/mysql</code>
+                                                        </li>
+                                                    </ul>
                                                 </div>
                                             </div>
-                                            <div>
-                                                <div class="project-item">
-                                                    <a href="img/project-item-05.jpg" data-lightbox="image-1"><img src="img/project-item-05.jpg" alt=""></a>
-                                                    <div class="text-content">
-                                                        <h4>Daftar Package</h4>
-                                                        <ul style="list-style-type:circle;">
-                                                            <li>
-                                                                <code>github.com/google/uuid</code>
-                                                            </li>
-                                                            <li>
-                                                                <code>github.com/gorilla/sessions</code>
-                                                            </li>
-                                                            <li>
-                                                                <code>github.com/huandu/xstrings</code>
-                                                            </li>
-                                                            <li>
-                                                                <code>github.com/imdario/mergo</code>
-                                                            </li>
-                                                            <li>
-                                                                <code>github.com/labstack/echo</code>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
+                                        </div>
+                                        <div>
+                                            <div class="project-item">
+                                                <a href="img/project-item-05.jpg" data-lightbox="image-1"><img src="img/project-item-05.jpg" alt=""></a>
+                                                <div class="text-content">
+                                                    <h4>Daftar Package</h4>
+                                                    <ul style="list-style-type:circle;">
+                                                        <li>
+                                                            <code>github.com/google/uuid</code>
+                                                        </li>
+                                                        <li>
+                                                            <code>github.com/gorilla/sessions</code>
+                                                        </li>
+                                                        <li>
+                                                            <code>github.com/huandu/xstrings</code>
+                                                        </li>
+                                                        <li>
+                                                            <code>github.com/imdario/mergo</code>
+                                                        </li>
+                                                        <li>
+                                                            <code>github.com/labstack/echo</code>
+                                                        </li>
+                                                    </ul>
                                                 </div>
                                             </div>
-                                            <div>
-                                                <div class="project-item">
-                                                    <a href="img/project-item-05.jpg" data-lightbox="image-1"><img src="img/project-item-05.jpg" alt=""></a>
-                                                    <div class="text-content">
-                                                        <h4>Daftar Package</h4>
-                                                        <ul style="list-style-type:circle;">
-                                                            <li>
-                                                                <code>github.com/labstack/echo-contrib</code>
-                                                            </li>
-                                                            <li>
-                                                                <code>github.com/labstack/gommon</code>
-                                                            </li>
-                                                            <li>
-                                                                <code>github.com/mattn/go-colorable</code>
-                                                            </li>
-                                                            <li>
-                                                                <code>github.com/mitchellh/copystructure</code>
-                                                            </li>
-                                                            <li>
-                                                                <code>github.com/tkanos/gonfig</code>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
+                                        </div>
+                                        <div>
+                                            <div class="project-item">
+                                                <a href="img/project-item-05.jpg" data-lightbox="image-1"><img src="img/project-item-05.jpg" alt=""></a>
+                                                <div class="text-content">
+                                                    <h4>Daftar Package</h4>
+                                                    <ul style="list-style-type:circle;">
+                                                        <li>
+                                                            <code>github.com/labstack/echo-contrib</code>
+                                                        </li>
+                                                        <li>
+                                                            <code>github.com/labstack/gommon</code>
+                                                        </li>
+                                                        <li>
+                                                            <code>github.com/mattn/go-colorable</code>
+                                                        </li>
+                                                        <li>
+                                                            <code>github.com/mitchellh/copystructure</code>
+                                                        </li>
+                                                        <li>
+                                                            <code>github.com/tkanos/gonfig</code>
+                                                        </li>
+                                                    </ul>
                                                 </div>
                                             </div>
-                                            <div>
-                                                <div class="project-item">
-                                                    <a href="img/project-item-05.jpg" data-lightbox="image-1"><img src="img/project-item-05.jpg" alt=""></a>
-                                                    <div class="text-content">
-                                                        <h4>Daftar Package</h4>
-                                                        <ul style="list-style-type:circle;">
-                                                            <li>
-                                                                <code>github.com/valyala/fasttemplate</code>
-                                                            </li>
-                                                            <li>
-                                                                <code>golang.org/x/crypto </code>
-                                                            </li>
-                                                            <li>
-                                                                <code>golang.org/x/net</code>
-                                                            </li>
-                                                            <li>
-                                                                <code>golang.org/x/sys</code>
-                                                            </li>
-                                                            <li>
-                                                                <code>gopkg.in/yaml.v2</code>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
+                                        </div>
+                                        <div>
+                                            <div class="project-item">
+                                                <a href="img/project-item-05.jpg" data-lightbox="image-1"><img src="img/project-item-05.jpg" alt=""></a>
+                                                <div class="text-content">
+                                                    <h4>Daftar Package</h4>
+                                                    <ul style="list-style-type:circle;">
+                                                        <li>
+                                                            <code>github.com/valyala/fasttemplate</code>
+                                                        </li>
+                                                        <li>
+                                                            <code>golang.org/x/crypto </code>
+                                                        </li>
+                                                        <li>
+                                                            <code>golang.org/x/net</code>
+                                                        </li>
+                                                        <li>
+                                                            <code>golang.org/x/sys</code>
+                                                        </li>
+                                                        <li>
+                                                            <code>gopkg.in/yaml.v2</code>
+                                                        </li>
+                                                    </ul>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                </div>
 
 
-                                    {{template "footer".}} {{ end }}
+                                {{template "footer".}} {{ end }}

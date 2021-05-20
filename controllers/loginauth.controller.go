@@ -55,3 +55,19 @@ func CheckingLogin(c echo.Context) error {
 		"Token akses anda": t,
 	})
 }
+
+func NewRegister(c echo.Context) error {
+	username := c.FormValue("username")
+	password := c.FormValue("password")
+
+	_, err := models.RegisMember(username, password)
+
+	if err != nil{
+		return c.JSON(http.StatusInternalServerError, map[string]string{
+			"messages": "Tolong periksa kembali inputan username atau password Anda",
+		})
+	}
+
+	return c.Redirect(http.StatusMovedPermanently, "/login")
+	
+}

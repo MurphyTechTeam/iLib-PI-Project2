@@ -7,8 +7,8 @@ html {
 }
 
 .user_card {
-    height: 400px;
-    width: 350px;
+    /* height: 400px;
+    width: 350px; */
     margin-top: auto;
     margin-bottom: auto;
     background-color: rgba(45, 58, 75, 0.5);

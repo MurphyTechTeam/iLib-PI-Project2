@@ -58,6 +58,7 @@ func Init() *echo.Echo {
 	e.POST("/login", controllers.CheckingLogin)
 
 	e.GET("/register", controllers.RegisterView)
+	e.POST("/register", controllers.NewRegister)
 	//---------------------------------------------//
 	// Coba template lain (tampilan html)
 
