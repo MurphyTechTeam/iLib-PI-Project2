@@ -10,6 +10,10 @@ import (
 type CustomContext struct {
 	echo.Context
 }
+type auth struct{
+	Token string `json:"token"`
+	Username string `json:"username"`
+}
 
 func (c CustomContext) GetFlash() map[string]interface{} {
 	session, _ := session.Get("flash", c)
@@ -19,4 +23,12 @@ func (c CustomContext) GetFlash() map[string]interface{} {
 		return flashes
 	}
 	return map[string]interface{}{}
+}
+
+func (c CustomContext) Auth() auth {
+	var auth auth
+	session, _ := session.Get("session", c)
+	auth.Token = session.Values["token"].(string)
+	auth.Username = session.Values["username"].(string)
+	return auth 
 }

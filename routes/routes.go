@@ -42,6 +42,7 @@ func Init() *echo.Echo {
 	templates["home.html"] = template.Must(template.New("base").Funcs(sprig.FuncMap()).ParseFiles("view/header.html", "view/home.html", "view/footer.html"))
 	templates["login.html"] = template.Must(template.New("base").Funcs(sprig.FuncMap()).ParseFiles("view/login.html"))
 	templates["register.html"] = template.Must(template.New("base").Funcs(sprig.FuncMap()).ParseFiles("view/register.html"))
+	templates["dashboard.html"] = template.Must(template.New("base").Funcs(sprig.FuncMap()).ParseFiles("view/header.html","view/dashboard.html", "view/footer.html"))
 	e.Renderer = &DaftarTemplate{
 		Templates: templates,
 	}
@@ -56,9 +57,12 @@ func Init() *echo.Echo {
 	e.GET("/login", controllers.LoginView)
 	// Melakukan authorization user
 	e.POST("/login", controllers.CheckingLogin)
-
+	
 	e.GET("/register", controllers.RegisterView)
 	e.POST("/register", controllers.NewRegister)
+
+	e.GET("/dashboard", controllers.DashboardView)
+	
 	//---------------------------------------------//
 	// Coba template lain (tampilan html)
 

@@ -27,3 +27,10 @@ func RegisterView(c echo.Context) error {
 		"flash": flash,
 	})
 }
+
+func DashboardView(c echo.Context) error {
+	auth := c.(*CustomContext).Auth()
+	return c.Render(http.StatusOK, "dashboard.html", map[string]interface{}{
+		"auth": auth,
+	})
+}

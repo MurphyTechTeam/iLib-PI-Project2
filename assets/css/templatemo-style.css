@@ -647,6 +647,7 @@ ul {
     .home-content .left-text {
         float: none;
         width: auto;
+        height: auto;
     }
     .home-content .right-image {
         text-align: center;

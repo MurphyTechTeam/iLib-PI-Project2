@@ -5,6 +5,8 @@ import (
 	"mhilmi999/project-2-mhilmi999/models"
 	"net/http"
 	"time"
+	"github.com/labstack/echo-contrib/session"
+	
 
 	"github.com/dgrijalva/jwt-go"
 	"github.com/labstack/echo/v4"
@@ -35,7 +37,9 @@ func CheckingLogin(c echo.Context) error {
 	}
 
 	// return c.String(http.StatusOK, "Sukses Login")
-	
+
+	session,_ := session.Get("session",c)
+
 	// Pembuatan Generate Token
 	token := jwt.New(jwt.SigningMethodHS256)
 
@@ -51,9 +55,11 @@ func CheckingLogin(c echo.Context) error {
 			"messages": err.Error(),
 		})
 	}
-	return c.JSON(http.StatusOK, map[string]string{
-		"Token akses anda": t,
-	})
+
+	session.Values["token"] = t
+	session.Values["username"] = username
+	session.Save(c.Request(), c.Response())
+	return c.Redirect(http.StatusMovedPermanently, "/dashboard")
 }
 
 func NewRegister(c echo.Context) error {
@@ -71,3 +77,4 @@ func NewRegister(c echo.Context) error {
 	return c.Redirect(http.StatusMovedPermanently, "/login")
 	
 }
+

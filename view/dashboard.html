@@ -1,0 +1,33 @@
+{{ define "base.html" }} {{template "header"}}
+<section class="panel b-blue" id="1">
+    <article class="panel__wrapper">
+        <div class="panel__content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 center-block" style="margin: auto;">
+                        <div class="well well-sm">
+                            <div class="row">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-danger">
+                                        LogOut
+                                    </button>
+                                </div>
+
+                                <div class="col-sm-6 col-md-8">
+                                    <h1>Selamat Datang!</h1>
+                                    <h3>Halo {{.auth.Username}}</h3>
+                                    <h4>Berikut merupakan JWT Token mu :</h4>
+                                    <div class="card-text card-block">
+                                        <small><code>{{.auth.Token}}</code></small>
+                                    </div>
+                                    <!-- Split button -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>
+{{template "footer".}} {{ end }}
