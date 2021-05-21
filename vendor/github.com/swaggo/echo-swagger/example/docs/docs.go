@@ -14,7 +14,7 @@ var doc = `{
     "info": {
         "title": "iLib Perpustakaan API",
     },
-    "host": "localhost:1234",
+    "host": "ilib.lintasin.me",
     "basePath": "",
     "securityDefinitions": {        
         "bearerAuth": {
