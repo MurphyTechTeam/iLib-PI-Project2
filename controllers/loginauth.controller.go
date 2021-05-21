@@ -78,3 +78,10 @@ func NewRegister(c echo.Context) error {
 	
 }
 
+func LogOut(c echo.Context) error{
+	session,_ := session.Get("session",c)
+	session.Values["token"] = nil
+	session.Values["username"] = nil
+	session.Save(c.Request(), c.Response())
+	return c.Redirect(http.StatusMovedPermanently, "/")
+}
