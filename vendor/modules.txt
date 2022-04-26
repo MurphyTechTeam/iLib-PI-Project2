@@ -13,8 +13,6 @@ github.com/Masterminds/sprig
 github.com/PuerkitoBio/purell
 # github.com/PuerkitoBio/urlesc v0.0.0-20170810143723-de5bf2ad4578
 github.com/PuerkitoBio/urlesc
-# github.com/cpuguy83/go-md2man/v2 v2.0.0
-## explicit
 # github.com/dgrijalva/jwt-go v3.2.0+incompatible
 ## explicit
 github.com/dgrijalva/jwt-go
@@ -49,8 +47,6 @@ github.com/huandu/xstrings
 github.com/imdario/mergo
 # github.com/josharian/intern v1.0.0
 github.com/josharian/intern
-# github.com/labstack/echo v3.3.10+incompatible
-## explicit
 # github.com/labstack/echo-contrib v0.9.0
 ## explicit
 github.com/labstack/echo-contrib/session
@@ -59,7 +55,6 @@ github.com/labstack/echo-contrib/session
 github.com/labstack/echo/v4
 github.com/labstack/echo/v4/middleware
 # github.com/labstack/gommon v0.3.0
-## explicit
 github.com/labstack/gommon/bytes
 github.com/labstack/gommon/color
 github.com/labstack/gommon/log
@@ -70,7 +65,6 @@ github.com/mailru/easyjson/buffer
 github.com/mailru/easyjson/jlexer
 github.com/mailru/easyjson/jwriter
 # github.com/mattn/go-colorable v0.1.8
-## explicit
 github.com/mattn/go-colorable
 # github.com/mattn/go-isatty v0.0.12
 github.com/mattn/go-isatty
@@ -79,28 +73,20 @@ github.com/mattn/go-isatty
 github.com/mitchellh/copystructure
 # github.com/mitchellh/reflectwalk v1.0.2
 github.com/mitchellh/reflectwalk
-# github.com/russross/blackfriday/v2 v2.1.0
-## explicit
 # github.com/swaggo/echo-swagger v1.1.0
 ## explicit
 github.com/swaggo/echo-swagger
 github.com/swaggo/echo-swagger/example/docs
 # github.com/swaggo/files v0.0.0-20190704085106-630677cd5c14
 github.com/swaggo/files
-# github.com/swaggo/gin-swagger v1.3.0
-## explicit
 # github.com/swaggo/swag v1.7.0
-## explicit
 github.com/swaggo/swag
 # github.com/tkanos/gonfig v0.0.0-20180326121832-e83209aed2d1
 ## explicit
 github.com/tkanos/gonfig
-# github.com/urfave/cli v1.20.0
-## explicit
 # github.com/valyala/bytebufferpool v1.0.0
 github.com/valyala/bytebufferpool
 # github.com/valyala/fasttemplate v1.2.1
-## explicit
 github.com/valyala/fasttemplate
 # golang.org/x/crypto v0.0.0-20210513164829-c07d793c2f9a
 ## explicit
